@@ -5,7 +5,7 @@ body {
   font-family: 'Inter', sans-serif;
   line-height: 1.6;
   color: #ffffff;
-  background: #0f0c29;  /* fallback */
+  background: #0f0c29;
   background: linear-gradient(135deg, #24243e, #302b63, #0f0c29);
   min-height: 100vh;
 }
