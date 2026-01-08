@@ -5,6 +5,8 @@
   <title>GETPWND – Child-Protection Initiative</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="GETPWND uncovers & reports online predatory behaviour while assisting law-enforcement and raising public awareness.">
+  <!-- favicon -->
+  <link rel="icon" type="image/gif" href="assets/img/favicon.gif">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
@@ -12,13 +14,21 @@
 </head>
 <body>
 
+<!-- loading spinner -->
+<div id="loader"><div class="spinner"></div></div>
+
+<!-- cookie banner -->
+<div id="cookie-banner"><p>We use cookies to enhance your experience. <button id="cookie-ok">OK</button></p></div>
+
 <!-- NAV -->
 <nav class="nav">
   <div class="nav__container">
     <a href="#top" class="nav__logo">GETPWND</a>
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌓</button>
     <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">☰</button>
     <ul class="nav__menu" data-visible="false">
       <li><a href="#about">About</a></li>
+      <li><a href="#numbers">Numbers</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -29,7 +39,7 @@
 <!-- HERO -->
 <header id="top" class="hero">
   <div class="hero__text">
-    <h1>GETPWND</h1>
+    <h1 id="typewriter"></h1>
     <p>Child-protection initiative focused on uncovering & reporting online predatory behaviour.</p>
     <a href="#about" class="btn">Learn more</a>
   </div>
@@ -51,6 +61,27 @@
       </div>
       <div class="about__img">
         <img src="assets/img/about.gif" alt="About image">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COUNT-UP NUMBERS -->
+<section id="numbers" class="numbers">
+  <div class="container">
+    <h2>By the numbers</h2>
+    <div class="nums-grid">
+      <div class="num-item">
+        <span class="counter" data-target="1234">0</span>
+        <p>Reports filed</p>
+      </div>
+      <div class="num-item">
+        <span class="counter" data-target="99">0</span>
+        <p>Predators flagged</p>
+      </div>
+      <div class="num-item">
+        <span class="counter" data-target="56">0</span>
+        <p>Cases assisted</p>
       </div>
     </div>
   </div>

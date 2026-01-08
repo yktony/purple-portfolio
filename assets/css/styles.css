@@ -28,6 +28,80 @@ img { max-width: 100%; display: block; border-radius: 8px; }
   --shadow: 0 8px 24px rgba(0,0,0,.36);
 }
 
+/* ---------- LOADING SPINNER ---------- */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #0f0c29;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .3s ease;
+}
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255,255,255,.2);
+  border-top-color: #7f5af0;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ---------- COOKIE BANNER ---------- */
+#cookie-banner {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0; right: 0;
+  background: rgba(15, 12, 41, .95);
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  z-index: 2000;
+  font-size: .9rem;
+}
+#cookie-banner p { margin: 0; }
+#cookie-ok {
+  margin-left: 1rem;
+  padding: .3rem .8rem;
+  background: #7f5af0;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+#cookie-ok:hover { background: #a992f6; }
+
+/* ---------- DARK / LIGHT TOGGLE ---------- */
+#theme-toggle {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  color: #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background .3s;
+}
+#theme-toggle:hover { background: rgba(255,255,255,.2); }
+
+/* light theme overrides */
+html.light {
+  --bg: #f5f5f5;
+  --text: #111;
+  --card: #ffffff;
+}
+html.light body {
+  background: var(--bg);
+  color: var(--text);
+}
+html.light .card { background: var(--card); border: 1px solid #ddd; }
+html.light #theme-toggle { background: rgba(0,0,0,.05); border-color: rgba(0,0,0,.15); color: #000; }
+html.light #theme-toggle:hover { background: rgba(0,0,0,.1); }
+
 /* ---------- UTILITIES ---------- */
 .container { width: 90%; max-width: 1000px; margin: auto; }
 .btn {
@@ -110,6 +184,17 @@ img { max-width: 100%; display: block; border-radius: 8px; }
   opacity: .9;
 }
 
+/* ---------- TYPEWRITER ---------- */
+#typewriter {
+  border-right: 3px solid #7f5af0;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: blink .75s step-end infinite;
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
 /* ---------- SECTIONS ---------- */
 section { padding: 4rem 0; }
 h2 { font-size: 2.2rem; margin-bottom: 2rem; text-align: center; }
@@ -120,6 +205,18 @@ h2 { font-size: 2.2rem; margin-bottom: 2rem; text-align: center; }
   grid-template-columns: 1fr 280px;
 }
 .about__img img { box-shadow: var(--shadow); }
+
+/* ---------- NUMBERS ---------- */
+.numbers { text-align: center; padding: 4rem 0; }
+.nums-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; }
+.num-item { flex: 1 1 200px; }
+.counter {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #7f5af0;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.num-item p { margin-top: .5rem; opacity: .8; }
 
 /* ---------- PROJECTS ---------- */
 .projects { background: rgba(15, 12, 41, .35); }
