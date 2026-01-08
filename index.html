@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Jane Doe – Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Personal portfolio of Jane Doe – front-end developer & UI tinkerer.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav__container">
+    <a href="#top" class="nav__logo">JD</a>
+    <button class="nav__toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    <ul class="nav__menu" data-visible="false">
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header id="top" class="hero">
+  <div class="hero__text">
+    <h1>Hi, I'm <span class="accent">Jane Doe</span></h1>
+    <p>Front-end developer & UI tinkerer who loves turning ideas into pixels.</p>
+    <a href="#projects" class="btn">See my work</a>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="container">
+    <h2>About me</h2>
+    <div class="about__grid">
+      <div class="about__text">
+        <p>
+          I’m a self-taught developer with a knack for responsive layouts, clean
+          animations and purple color palettes. When I’m not coding you’ll find
+          me sketching interfaces or hunting for the perfect coffee-to-code ratio.
+        </p>
+      </div>
+      <div class="about__img">
+        <img src="https://source.unsplash.com/random/400x400?purple,portrait" alt="Portrait">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="projects">
+  <div class="container">
+    <h2>Projects</h2>
+    <div class="projects__grid">
+      <!-- 1 -->
+      <article class="card">
+        <img src="https://source.unsplash.com/random/600x400?purple,technology" alt="Project 1">
+        <div class="card__body">
+          <h3>Neon Chat App</h3>
+          <p>Real-time chat built with React & Firebase. Dark-mode first.</p>
+          <a href="#" class="btn btn--small">Live demo</a>
+          <a href="#" class="btn btn--small btn--ghost">Code</a>
+        </div>
+      </article>
+      <!-- 2 -->
+      <article class="card">
+        <img src="https://source.unsplash.com/random/600x400?purple,art" alt="Project 2">
+        <div class="card__body">
+          <h3>Lavender E-commerce</h3>
+          <p>Shopify-powered store for handcrafted soap. Custom Liquid tweaks.</p>
+          <a href="#" class="btn btn--small">Live demo</a>
+          <a href="#" class="btn btn--small btn--ghost">Code</a>
+        </div>
+      </article>
+      <!-- 3 -->
+      <article class="card">
+        <img src="https://source.unsplash.com/random/600x400?purple,waves" alt="Project 3">
+        <div class="card__body">
+          <h3>Wavy Landing Page</h3>
+          <p>Single-scroll marketing site with SVG waves and GSAP scrollTrigger.</p>
+          <a href="#" class="btn btn--small">Live demo</a>
+          <a href="#" class="btn btn--small btn--ghost">Code</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="skills">
+  <div class="container">
+    <h2>Skills</h2>
+    <div class="skills__list">
+      <span class="tag">HTML5</span>
+      <span class="tag">CSS3 / SCSS</span>
+      <span class="tag">JavaScript</span>
+      <span class="tag">React</span>
+      <span class="tag">Git</span>
+      <span class="tag">Figma</span>
+      <span class="tag">Firebase</span>
+      <span class="tag">GSAP</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="container">
+    <h2>Let’s talk</h2>
+    <form class="contact__form" action="https://formspree.io/f/your-form-id" method="POST">
+      <input type="text" name="name" placeholder="Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <textarea name="message" rows="5" placeholder="Message" required></textarea>
+      <button type="submit" class="btn">Send message</button>
+    </form>
+    <div class="contact__social">
+      <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
+      <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
+      <a href="mailto:hello@janedoe.dev">Email</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© <span id="year"></span> Jane Doe. Built with 💜 and vanilla code.</p>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
