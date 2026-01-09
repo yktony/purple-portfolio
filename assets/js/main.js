@@ -143,3 +143,38 @@ if (location.search.includes('admin=1')) {
 
 /* ----- dynamic year ----- */
 document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ===== LIVE CYBER DEFENCE ===== */
+
+/* 1.  HaveIBeenPwned breach alert (public email) */
+const publicEmail = 'pwndme@dnmx.cc';
+fetch(`https://haveibeenpwned.com/api/v3/breachedaccount/${encodeURIComponent(publicEmail)}`)
+  .then(r => r.ok ? r.json() : Promise.reject())
+  .then(data => {
+    if (data.length) {
+      const bar = document.getElementById('cyber-bar');
+      bar.textContent = `⚠️  Public breach detected on ${data[0].BreachDate} – review passwords.`;
+      bar.style.background = '#e74c3c';
+      bar.style.color = '#fff';
+      bar.style.padding = '.5rem';
+      bar.style.textAlign = 'center';
+      bar.style.fontSize = '.9rem';
+    }
+  })
+  .catch(() => {}); // silent fail if rate-limited
+
+/* 3.  Live VPN / proxy / threat detector */
+fetch('https://ipapi.co/json/')
+  .then(r => r.json())
+  .then(data => {
+    const bar = document.getElementById('cyber-bar');
+    if (data.org.includes('VPN') || data.threat_level === 'high') {
+      bar.textContent = '🔒 VPN/proxy or high-threat IP detected – extra verification may apply.';
+      bar.style.background = '#f39c12';
+      bar.style.color = '#000';
+      bar.style.padding = '.5rem';
+      bar.style.textAlign = 'center';
+      bar.style.fontSize = '.9rem';
+    }
+  })
+  .catch(() => {});

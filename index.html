@@ -9,10 +9,10 @@
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self';
                  img-src 'self' https:;
-                 script-src 'self' 'unsafe-inline' https://formspree.io;
+                 script-src 'self' 'unsafe-inline' https://formspree.io https://haveibeenpwned.com https://ipapi.co;
                  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
                  font-src https://fonts.gstatic.com;
-                 connect-src 'self' https://formspree.io;">
+                 connect-src 'self' https://formspree.io https://haveibeenpwned.com https://ipapi.co;">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
   <!-- favicon -->
@@ -29,6 +29,9 @@
 
 <!-- cookie banner -->
 <div id="cookie-banner"><p>We use cookies to enhance your experience. <button id="cookie-ok">OK</button></p></div>
+
+<!-- LIVE CYBER ALERTS BAR -->
+<div id="cyber-bar"></div>
 
 <!-- NAV -->
 <nav class="nav">
