@@ -5,6 +5,16 @@
   <title>GETPWND – Child-Protection Initiative</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="GETPWND uncovers & reports online predatory behaviour while assisting law-enforcement and raising public awareness.">
+  <!-- SECURITY HEADERS -->
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self';
+                 img-src 'self' https:;
+                 script-src 'self' 'unsafe-inline' https://formspree.io;
+                 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+                 font-src https://fonts.gstatic.com;
+                 connect-src 'self' https://formspree.io;">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
   <!-- favicon -->
   <link rel="icon" type="image/gif" href="assets/img/favicon.gif">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -119,16 +129,20 @@
 <section id="contact" class="contact">
   <div class="container">
     <h2>Contact</h2>
-    <form class="contact__form" action="https://formspree.io/f/xwpejqql" method="POST">
-      <input type="text" name="name" placeholder="Name" required>
-      <input type="email" name="email" placeholder="Email" required>
-      <textarea name="message" rows="5" placeholder="Message" required></textarea>
+    <form class="contact__form" action="https://formspree.io/f/xwpejqql" method="POST" id="contactForm">
+      <input type="text" name="a7384" placeholder="Name" required>
+      <input type="email" name="b9021" placeholder="Email" required>
+      <textarea name="c4815" placeholder="Message" required></textarea>
+      <!-- honeypot -->
+      <input type="text" name="city" autocomplete="off" tabindex="-1" class="pot">
       <button type="submit" class="btn">Send message</button>
     </form>
     <div class="contact__social">
       <a href="https://discord.gg/q2B43czYXc" target="_blank" rel="noopener">Discord</a>
       <a href="mailto:pwndme@dnmx.cc">Email</a>
     </div>
+    <!-- clear-data button -->
+    <button id="wipe" class="btn btn--small" style="margin-top:1rem;">Clear all data</button>
   </div>
 </section>
 
@@ -136,6 +150,9 @@
 <footer class="footer">
   <p>© <span id="year"></span> GETPWND. Built for protection, not profit.</p>
 </footer>
+
+<!-- invisible canary link -->
+<a href="/?admin=1" style="display:none">admin</a>
 
 <script src="assets/js/main.js"></script>
 </body>

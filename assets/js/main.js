@@ -80,5 +80,66 @@ const obs = new IntersectionObserver((entries, o) => {
 }, { threshold: .5 });
 if (section) obs.observe(section);
 
+/* ----- rate-limit contact form ----- */
+const form = document.getElementById('contactForm');
+const SUBMIT_KEY = 'getpwnd submits';
+const LIMIT = 3;
+const WINDOW_MS = 5 * 60 * 1000;
+function canSubmit() {
+  const now = Date.now();
+  const history = JSON.parse(localStorage.getItem(SUBMIT_KEY) || '[]');
+  const recent = history.filter(t => now - t < WINDOW_MS);
+  localStorage.setItem(SUBMIT_KEY, JSON.stringify(recent));
+  return recent.length < LIMIT;
+}
+function recordSubmit() {
+  const history = JSON.parse(localStorage.getItem(SUBMIT_KEY) || '[]');
+  history.push(Date.now());
+  localStorage.setItem(SUBMIT_KEY, JSON.stringify(history));
+}
+form.addEventListener('submit', (e) => {
+  if (!canSubmit()) {
+    e.preventDefault();
+    alert('You can only send 3 messages every 5 minutes. Please wait.');
+    return;
+  }
+  recordSubmit();
+});
+
+/* ----- honeypot spam trap ----- */
+const pot = document.querySelector('.pot');
+form.addEventListener('submit', (e) => {
+  if (pot.value.length) {
+    e.preventDefault();
+    alert('Bot detected.');
+  }
+});
+
+/* ----- paste-jacking shield ----- */
+document.addEventListener('paste', (e) => {
+  const data = e.clipboardData.getData('text');
+  if (data.includes('<script>') || data.includes('javascript:')) {
+    alert('Pasted content looks dangerous--review before using.');
+  }
+});
+
+/* ----- clear-site-data button ----- */
+document.getElementById('wipe').onclick = () => {
+  localStorage.clear();
+  caches.keys().then(names => names.forEach(n => caches.delete(n)));
+  document.cookie.split(';').forEach(c => document.cookie = c.replace(/^ +/, '').replace(/=.*/, '=;expires=' + new Date().toUTCString() + ';path=/'));
+  alert('Local data wiped.');
+};
+
+/* ----- canary token ----- */
+if (location.search.includes('admin=1')) {
+  fetch('https://formspree.io/f/xwpejqql', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ subject: 'Canary triggered', url: location.href })
+  });
+  location.replace('https://example.com');
+};
+
 /* ----- dynamic year ----- */
 document.getElementById('year').textContent = new Date().getFullYear();
